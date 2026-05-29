@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.film-strip {
+  position: absolute;
+  top: 50%;
+  left: -100%;
+  display: flex;
+  gap: 20px;
+  transform: translateY(-50%);
+  animation: slideFilm 10s linear infinite;
+}
+
+.film-strip img {
+  width: 120px;
+  height: 160px;
+  object-fit: cover;
+  border: 4px solid white;
+  border-radius: 10px;
+}
+
+@keyframes slideFilm {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+.fall-text {
+  animation: fallDown 1.5s ease-out forwards;
+}
+
+@keyframes fallDown {
+  0% {
+    transform: translateY(-200px);
+    opacity: 0;
+  }
+  60% {
+    transform: translateY(20px);
+    opacity: 1;
+  }
+  80% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
